@@ -5,10 +5,12 @@ const server = require('http').createServer(app);
 const port = process.env.PORT || 4000;
 // Middleware Imports
 const io = require('socket.io')(server);
-const graphQLExpress = require('express-graphql')
+const graphQLExpress = require('express-graphql');
+const graphQLSchema = require('./graphql/query/schema/schema');
 
 app.use('/graph', graphQLExpress({
-  graphiql: true
+  graphiql: true,
+  schema: graphQLSchema
 }))
 
 server.listen(port, ()=>{
