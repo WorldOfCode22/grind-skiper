@@ -2,6 +2,8 @@ const assetType = require('../asset-type');
 const assetResolver = require('./resolvers/asset-resolver');
 const costType = require('../cost-type');
 const costResolver = require('./resolvers/cost-resolver');
+const itemType = require('../item-type');
+const itemResolver = require('./resolvers/item-resolver')
 const
 {
   GraphQLObjectType,
@@ -29,6 +31,16 @@ module.exports = new GraphQLObjectType({
       },
       resolver(parentVal, args){
         costResolver(parentVal, args);
+      }
+    },
+    item: {
+      type: itemType,
+      args: {
+        id: {type: GraphQLString},
+        name: {type: GraphQLString}
+      },
+      resolver(parentVal, args){
+        itemResolver(parentVal, args);
       }
     }
   }
