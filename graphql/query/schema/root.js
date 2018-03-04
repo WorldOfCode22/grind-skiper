@@ -19,7 +19,7 @@ module.exports = new GraphQLObjectType({
         id: {type: GraphQLString},
         name: {type: GraphQLString}
       },
-      resolver(parentVal, args){
+      resolve(parentVal, args){
         assetResolver(parentVal, args)
       }
     },
@@ -29,7 +29,7 @@ module.exports = new GraphQLObjectType({
         asset: {type: assetType.inputType},
         quantity: {type: GraphQLInt}
       },
-      resolver(parentVal, args){
+      resolve(parentVal, args){
         costResolver(parentVal, args);
       }
     },
@@ -39,7 +39,7 @@ module.exports = new GraphQLObjectType({
         id: {type: GraphQLString},
         name: {type: GraphQLString}
       },
-      resolver(parentVal, args){
+      resolve(parentVal, args){
         itemResolver(parentVal, args);
       }
     }

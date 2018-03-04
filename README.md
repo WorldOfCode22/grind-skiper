@@ -27,3 +27,10 @@ Is the cost of the item
 Is the items in game Name
 #### Query.Item.description (String)
 Is the items in game description
+## Mutation Fields
+### Mutation.createAsset
+This is a mutation that will create a Query.Asset for the database
+#### Mutation.createAsset.name
+Is the name of the created asset
+#### Mutation.createAsset.description
+Is the in game description to be inserted into the database
