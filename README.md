@@ -19,11 +19,11 @@ Is the asset that is being used to buy an item.
 Is the amount of asset needed to buy an item.
 ### Query.Item
 Is an item that is acquirable either through purchase or loot
-### Query.Item.id (String)
+#### Query.Item.id (String)
 Item Database Id
-### Query.Item.cost ([Query.Cost])
+#### Query.Item.cost ([Query.Cost])
 Is the cost of the item
-### Query.Item.name (String)
+#### Query.Item.name (String)
 Is the items in game Name
-### Query.Item.description (String)
+#### Query.Item.description (String)
 Is the items in game description
