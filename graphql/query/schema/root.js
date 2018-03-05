@@ -40,7 +40,7 @@ module.exports = new GraphQLObjectType({
         name: {type: GraphQLString}
       },
       resolve(parentVal, args){
-        itemResolver(parentVal, args);
+        return itemResolver(parentVal, args);
       }
     }
   }
