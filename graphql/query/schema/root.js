@@ -20,7 +20,7 @@ module.exports = new GraphQLObjectType({
         name: {type: GraphQLString}
       },
       resolve(parentVal, args){
-        assetResolver(parentVal, args)
+        return assetResolver(parentVal, args)
       }
     },
     cost: {
