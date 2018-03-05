@@ -2,7 +2,7 @@ const itemModel = require('../../../models/item-model');
 const assetModel = require('../../../models/asset-model');
 
 module.exports.create = function(parentVal, args){
-        let cost = args.cost;
+    let costArr = [];
         function getAssets(){
           let assetArr = []
           args.cost.forEach((obj)=>{
@@ -23,8 +23,10 @@ module.exports.create = function(parentVal, args){
           .then(
             (docs)=>{
                 docs.forEach((doc, i)=>{
-                  args.cost[i].asset = doc;
+                  costArr.push({asset:doc, quantity:args.cost[i].quantity});
+                  args.cost[i].asset.name = doc.name;
                 })
+                return docs;
             },
             err=>{throw new Error(err)}
           ).then(
@@ -34,7 +36,11 @@ module.exports.create = function(parentVal, args){
                 name: args.name,
                 description: args.description
               }).save().then(
-                (doc)=>{return doc},
+                (doc)=>{
+                  doc.cost = costArr;
+                  console.log(doc);
+                  return doc;
+                },
                 err=>{throw new Error(err)}
           )
             },

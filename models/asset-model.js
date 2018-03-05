@@ -12,5 +12,14 @@ const asset = new mongoose.Schema({
   }
 })
 
+const assetSubField = new mongoose.Schema({
+  _id:false,
+  name: {
+    type: String
+  },
+  description:{
+      type: String,
+  }
+})
 module.exports = mongoose.model('asset', asset)
-module.exports.asset = asset;
+module.exports.asset = assetSubField;
